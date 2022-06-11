@@ -1,0 +1,175 @@
+/*VARIABLECOLORSTACK*/
+
+$default_color: #ffffff;
+$p_color: #959494;
+$main_color: #86509f;
+$second_color: #9a62b4;
+$accent_color: #ab68b7;
+
+$font: "Karla";
+$mini_padding: 0.5rem 0rem;
+$space_padding: 2.5rem;
+
+/* MIXINS  */
+@mixin font {
+  font-family: "Karla";
+  font-size: 16px;
+  font-weight: 400;
+}
+@mixin border {
+  border-radius: 15px;
+}
+@mixin button {
+  margin-left: 25%;
+  padding: 0.8rem 2rem;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+@mixin footer_text {
+  color: #b8b8b8;
+  font-style: italic;
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  @include font; /* includes font mixin */
+  background-image: url(../images/squiggly_lines_desktop.png);
+}
+.main {
+  width: 38rem;
+  margin: 0 auto;
+}
+header {
+  margin: 2rem auto;
+  text-align: center;
+}
+.main {
+  @include border; /* includes border mixin */
+  box-shadow: 0px 3px 8px #aeaeae;
+  background: $default_color;
+}
+.intro {
+  padding: 1rem;
+  color: $second_color;
+  padding: $space_padding;
+}
+.intro > h2 {
+  color: $main_color;
+  margin: 0.6rem 0rem;
+  padding: $mini_padding;
+}
+.intro > h4 {
+  padding: $mini_padding;
+}
+.intro_text {
+  color: $p_color;
+}
+.container-flex {
+  display: flex; /* makes it flexible when user resizes the viewport */
+  flex-direction: row; /* the direction is horizontal , not vertical(column) */
+  justify-content: center; /* aligns the div in the center */
+}
+.one,
+.two {
+  width: 50%;
+  padding: $space_padding;
+}
+
+.two {
+  border-bottom-right-radius: 15px;
+  background: $second_color;
+  line-height: 1.4rem;
+  color: $default_color;
+}
+
+.one {
+  border-bottom-left-radius: 15px;
+  background: $main_color;
+  color: $default_color;
+}
+.one > h3 {
+  color: $default_color;
+  padding: $mini_padding;
+}
+.one > p {
+  padding: 1.4rem 0rem;
+  font-size: 0.9rem;
+}
+.two > h3 {
+  padding: $mini_padding;
+}
+/* Everything in .display has to have "display:inline" to display the "per month" next to the 29$*/
+.display {
+  display: inline;
+}
+.display > h6 {
+  display: inline;
+  $default_color: #ffffff97;
+  color: $default_color;
+}
+.display > h2 {
+  display: inline;
+  font-size: 2rem;
+}
+
+p {
+  color: $default_color;
+}
+
+h1 {
+  color: $main_color;
+}
+
+button {
+  @include button;
+  background: $accent_color;
+  color: $default_color;
+}
+button:hover {
+  $accent_color: #ab68b7cb; /* Changes the color just in this part */
+  background: $accent_color;
+}
+
+.attribution {
+  @include footer_text;
+}
+a {
+  color: $accent_color;
+}
+/* MEDIA QUERY */
+@media (max-width: 650px) {
+  .main {
+    width: 90%;
+  }
+  .container-flex {
+    flex-direction: column; /* changes the direction to vertical */
+  }
+  .one,
+  .two {
+    width: 100%;
+    text-align: center;
+  }
+  .one {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  button {
+    margin-left: 0%;
+    width: 18rem;
+  }
+  .two {
+    padding-left: 30%;
+    text-align: left;
+    width: 100%;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+}
